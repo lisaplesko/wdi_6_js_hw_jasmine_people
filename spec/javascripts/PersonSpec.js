@@ -20,8 +20,8 @@ describe("Person", function(){
 
       expect(this.person.age).toEqual(30);
       expect(this.person.weight).toEqual(80);
-      expect(this.person.height).toBeGreaterThan(150);
-      expect(this.person.height).toBeLessThan(200);
+      expect(this.person.height).toBeGreaterThan(149);
+      expect(this.person.height).toBeLessThan(201);
       expect(this.person.friends.length).toBe(0);
     });
   });
@@ -40,11 +40,22 @@ describe("Person", function(){
     });
   });
 
-  xdescribe("#addFriend", function(){
+  describe("#addFriend", function(){
+    var friend = new Person("Susie", "Q");
+    it("adds a new person to the current person's friends", function(){
+      this.person.addFriend(friend);
 
+      expect(this.person.friends).toContain(friend);
+    });
   });
 
   xdescribe("#removeFriend", function(){
+      var friend = new Person("Susie", "Q");
+      it("removes a person from current friends", function(){
+      this.person.addFriend(friend);
+
+      expect(this.person.friends).toContain(friend);
+    });
 
   });
 
@@ -60,8 +71,6 @@ describe("Person", function(){
 
 // I should also be able to call these functions on a Person:
 
-// fullName should return the person's first name plus their last name
-// weightInStone should return the person's weight in stone
 // addFriend should take a Person object and add it to the person's friends
 // removeFriend should take a name string and remove the person with that name from the person's friends, if there is such a friend
 // greetPeople should return a string that greets an optional array of Person objects

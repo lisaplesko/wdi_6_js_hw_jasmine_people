@@ -9,6 +9,6 @@ function Person(firstName, lastName, age, weight, height, friends){
 
 Person.prototype = {
   fullName: function(){ return this.firstName + ' ' + this.lastName; },
-  weightInStone: function(){ return this.weight * 0.157473; }
-
+  weightInStone: function(){ return this.weight * 0.157473; },
+  addFriend: function(friend) { this.friends.push(friend); }
 };
