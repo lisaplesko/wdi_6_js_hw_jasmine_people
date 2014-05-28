@@ -34,7 +34,10 @@ describe("Person", function(){
   });
 
   describe("#weightInStone", function(){
+    it("converts weight from kg to stone", function() {
 
+      expect(this.person.weightInStone()).toBeCloseTo(12.6);
+    });
   });
 
   xdescribe("#addFriend", function(){
