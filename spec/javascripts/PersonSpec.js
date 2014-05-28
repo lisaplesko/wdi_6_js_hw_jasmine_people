@@ -13,13 +13,13 @@ describe("Person", function(){
 
     it("can also accept age, weight, height and friends", function(){
       var height = (Math.floor(Math.random() * 50 + 150 ));
-      var person = new Person("Lisa", "Plesko", 30, 80, height, []);
+      var person = new Person("Lisa", "Plesko");
 
       expect(person.age).toEqual(30);
       expect(person.weight).toEqual(80);
       expect(person.height).toBeGreaterThan(150);
       expect(person.height).toBeLessThan(200);
-      expect(person.friends.length).toEqual(0);
+      expect(person.friends.length).toBe(0);
     });
   });
 });
