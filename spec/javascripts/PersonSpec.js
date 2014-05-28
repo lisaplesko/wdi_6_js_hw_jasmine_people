@@ -49,12 +49,13 @@ describe("Person", function(){
     });
   });
 
-  xdescribe("#removeFriend", function(){
+  describe("#removeFriend", function(){
       var friend = new Person("Susie", "Q");
       it("removes a person from current friends", function(){
       this.person.addFriend(friend);
+      this.person.removeFriend(friend);
 
-      expect(this.person.friends).toContain(friend);
+      expect(this.person.friends).not.toContain(friend);
     });
 
   });
