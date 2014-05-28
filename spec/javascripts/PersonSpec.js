@@ -3,7 +3,7 @@
 describe("Person", function(){
 
   beforeEach(function() {
-    lisa = this.person = new Person("Lisa", "Plesko");
+    this.person = new Person("Lisa", "Plesko");
     this.friend = new Person("Susie", "Q");
   });
 
@@ -59,6 +59,8 @@ describe("Person", function(){
   });
 
   describe("#greetPeople", function(){
+    var lisa = new Person("Lisa", "Plesko");
+
     it("should greet all of a user's friends by full names with hi", function(){
       this.person.addFriend(this.friend);
 
