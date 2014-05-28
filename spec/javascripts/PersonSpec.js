@@ -4,6 +4,7 @@ describe("Person", function(){
 
   beforeEach(function() {
     this.person = new Person("Lisa", "Plesko");
+    this.friend = new Person("Susie", "Q");
   });
 
   describe("initializer", function(){
@@ -50,29 +51,24 @@ describe("Person", function(){
   });
 
   describe("#removeFriend", function(){
-      var friend = new Person("Susie", "Q");
-      it("removes a person from current friends", function(){
-      this.person.addFriend(friend);
-      this.person.removeFriend(friend);
+    it("removes a person from current friends", function(){
+      this.person.addFriend(this.friend);
+      this.person.removeFriend("Susie Q");
 
-      expect(this.person.friends).not.toContain(friend);
+      expect(this.person.friends).not.toContain("Susie Q");
     });
-
   });
 
   xdescribe("#greetPeople", function(){
+    it("should greet all of a user's friends by full names with 'hi'", function(){
+      this.person.addFriend(this.friend);
 
+      expect(this.person.greetPeople()).toBe('Hi, Susie Q');
+    });
+
+    // it should throw an error if no friends
   });
-
 
 });
 
 
-
-
-// I should also be able to call these functions on a Person:
-
-// addFriend should take a Person object and add it to the person's friends
-// removeFriend should take a name string and remove the person with that name from the person's friends, if there is such a friend
-// greetPeople should return a string that greets an optional array of Person objects
-// (default to the person's friends) by their full names, with an optional greeting (default to "Hi"). If no people are provided and the person has no friends, the function should throw an error.
