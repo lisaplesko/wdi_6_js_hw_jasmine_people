@@ -1,9 +1,9 @@
-/* global describe, it, expect, Person */
+/* global describe, it, expect, Person, beforeEach */
 
 describe("Person", function(){
 
   beforeEach(function() {
-    this.person = new Person("Lisa", "Plesko");
+    lisa = this.person = new Person("Lisa", "Plesko");
     this.friend = new Person("Susie", "Q");
   });
 
@@ -42,11 +42,10 @@ describe("Person", function(){
   });
 
   describe("#addFriend", function(){
-    var friend = new Person("Susie", "Q");
     it("adds a new person to the current person's friends", function(){
-      this.person.addFriend(friend);
+      this.person.addFriend(this.friend);
 
-      expect(this.person.friends).toContain(friend);
+      expect(this.person.friends).toContain(this.friend);
     });
   });
 
@@ -59,14 +58,19 @@ describe("Person", function(){
     });
   });
 
-  xdescribe("#greetPeople", function(){
-    it("should greet all of a user's friends by full names with 'hi'", function(){
+  describe("#greetPeople", function(){
+    it("should greet all of a user's friends by full names with hi", function(){
       this.person.addFriend(this.friend);
 
       expect(this.person.greetPeople()).toBe('Hi, Susie Q');
     });
 
-    // it should throw an error if no friends
+    it("should throw an error if user has no friends", function(){
+
+      expect(function() {
+        lisa.greetPeople();
+      }).toThrowError("you have no friends!");
+    });
   });
 
 });
