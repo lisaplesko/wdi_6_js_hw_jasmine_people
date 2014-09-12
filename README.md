@@ -1,4 +1,4 @@
-# Jasmine People
+# Jasmine Demo
 
 Follow the steps under **Installation** in the [jasmine-rails README](https://github.com/searls/jasmine-rails).
 
